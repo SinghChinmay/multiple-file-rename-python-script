@@ -1,11 +1,11 @@
 #Just Run python and the output would be like this:
 
-RUN >> "MultiRename.py"
+RUN >> "**MultiRename.py**"
 'Once renamed this cannot go back!!'
-Enter the destination folder location : C:\Studboo\test
+Enter the destination folder location : **C:\Studboo\test**
 
 'File order below:'
-
+_The application will show file-order_
 ['aplle 01 apple.jpg',
 'aplle 02 apple.jpg',
 'aplle 03 apple.jpg',
@@ -26,12 +26,12 @@ Enter the destination folder location : C:\Studboo\test
 'aplle 18 apple.jpg',
 'aplle 19 apple.jpg']
 **CHECKS FOR FILE ORDER**
-Is the fileorder correct?(y/n)y
+Is the fileorder correct?(y/n)**y**
 To rename the file add xx11 in the number you want to rename. mark number with xx11.
 
-#[Studboo] animefilename - 01 (BD 1920x1080 x.264 Flac).ass => [Studboo] animefilename - xx11 (BD 1920x1080 x.264 Flac).ass
+**[Studboo] animefilename - 01 (BD 1920x1080 x.264 Flac).ass => [Studboo] animefilename - xx11 (BD 1920x1080 x.264 Flac).ass**
 
-make sure to add extensions :apple xx11.jpg
+make sure to add extensions : apple** xx11**.jpg
 
 aplle 01 apple.jpg is replaced with : apple 01.jpg
 aplle 02 apple.jpg is replaced with : apple 02.jpg
