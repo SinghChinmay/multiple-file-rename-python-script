@@ -28,11 +28,12 @@ def main():
     #Check The File order
     check = input("Is the fileorder correct?(y/n)")
 
-    print("To rename the file add xx11 in the number you want to rename. mark number with xx11.\n\n[Moozzi2] Given - 01 (BD 1920x1080 x.264 Flac).ass => [Moozzi2] Given - xx11 (BD 1920x1080 x.264 Flac).ass\n\n")
-    ################################ xx11 will repaced by numbers #################################
-    fileN = input("make sure to add extensions :")
+    
 
     if check == 'y' or check == 'Y':
+        print("To rename the file add xx11 in the number you want to rename. mark number with xx11.\n\n[Moozzi2] Given - 01 (BD 1920x1080 x.264 Flac).ass => [Moozzi2] Given - xx11 (BD 1920x1080 x.264 Flac).ass\n\n")
+        ################################ xx11 will repaced by numbers #################################
+        fileN = input("make sure to add extensions :")
         for n in range(len(fileN)):
             
             if fileN[n] == 'x' and fileN[n+1] == 'x' and fileN[n+2] == '1' and fileN[n+3] == '1':
@@ -53,10 +54,8 @@ def main():
                     os.rename(src, dst) 
                     print(filename,'is replaced with :',dst1)
                     i += 1
-            else:
-                print("No >>>> xx11 <<<<< found int he file name")
-                exit()
     else:
+        print("Exiting")
         exit()
 
     
