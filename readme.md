@@ -31,7 +31,7 @@ To rename the file add xx11 in the number you want to rename. mark number with x
 
 **[Studboo] animefilename - 01 (BD 1920x1080 x.264 Flac).ass => [Studboo] animefilename - xx11 (BD 1920x1080 x.264 Flac).ass**
 
-make sure to add extensions : apple** xx11**.jpg
+make sure to add extensions : apple **xx11** .jpg
 
 aplle 01 apple.jpg is replaced with : apple 01.jpg  
 aplle 02 apple.jpg is replaced with : apple 02.jpg  
