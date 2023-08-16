@@ -1,68 +1,42 @@
-# Pythono3 Code by Studboo Senapi from Studboo.com
-# To rename the file add xx11 in the number you want to rename.
-# [Moozzi2] Given - 01 (BD 1920x1080 x.264 Flac).ass => [Moozzi2] Given - xx11 (BD 1920x1080 x.264 Flac).ass
+# Python3 Code to rename multiple files in a directory
+# Author: Studboo Senapi from Studboo.com
 
-# importing os module 
-import os 
-from pprint import pprint
-import shutil
-from shutil import copyfile
+import os
+import sys
 
-
-# Function to rename multiple files 
 def main():
-    i = 1
     directory = input("Enter the destination folder location : ")
-    #Adding Slash in the end of the pathname
-    if(directory[-1] != "\\"):
-        directory = directory + '\\';
-        if os.path.isdir(directory) == False:
-            pprint ('Path is incorrect! Run script again.')
-            exit(1)
-    
-    #Getting File Names
-    pprint('File order below:')
-    filenames = os.listdir(directory)
-    pprint(filenames)
+    directory = os.path.normpath(directory) + os.sep  # Normalize path and add separator
 
-    #Check The File order
-    check = input("Is the fileorder correct?(y/n)")
+    if not os.path.isdir(directory):
+        print('Path is incorrect! Run script again.')
+        sys.exit(1)
 
-    
+    print('File order below:')
+    filenames = sorted(os.listdir(directory))
+    print('\n'.join(filenames))
 
-    if check == 'y' or check == 'Y':
-        print("To rename the file add xx11 in the number you want to rename. mark number with xx11.\n\n[Moozzi2] Given - 01 (BD 1920x1080 x.264 Flac).ass => [Moozzi2] Given - xx11 (BD 1920x1080 x.264 Flac).ass\n\n")
-        ################################ xx11 will repaced by numbers #################################
-        fileN = input("make sure to add extensions :")
-        for n in range(len(fileN)):
-            
-            if fileN[n] == 'x' and fileN[n+1] == 'x' and fileN[n+2] == '1' and fileN[n+3] == '1':
-                s = fileN[:n]
-                e = fileN[n+4:]
-                
-                
-                for filename in filenames: 
-                    dst =s + str(i) + e
-                    dst1 = dst
-                    if i < 10:
-                        dst =s+'0' + str(i) + e 
-                        dst1 = dst
-                    src =directory+ filename 
-                    dst =directory+ dst 
-                    
-                    # rename() function will rename all the files 
-                    os.rename(src, dst) 
-                    print(filename,'is replaced with :',dst1)
-                    i += 1
-    else:
+    check = input("Is the file order correct? (y/n)").lower()
+    if check != 'y':
         print("Exiting")
-        exit()
+        sys.exit()
 
-    
-    
+    print("To rename the file, add xx11 in the number you want to rename. For example:\n\n[Moozzi2] Given - 01 (BD 1920x1080 x.264 Flac).ass => [Moozzi2] Given - xx11 (BD 1920x1080 x.264 Flac).ass\n\n")
+    fileN = input("Enter new filename template (make sure to add extensions): ")
 
-# Driver Code 
-if __name__ == '__main__': 
-	pprint("Once renamed this cannot go back!!")
-	# Calling main() function 
-	main() 
+    if 'xx11' not in fileN:
+        print("Invalid template. Please include 'xx11' in your template.")
+        sys.exit()
+
+    prefix, suffix = fileN.split('xx11')
+
+    for i, filename in enumerate(filenames, start=1):
+        new_name = f"{prefix}{str(i).zfill(2)}{suffix}"
+        src = os.path.join(directory, filename)
+        dst = os.path.join(directory, new_name)
+        os.rename(src, dst)
+        print(f"{filename} is replaced with : {new_name}")
+
+if __name__ == '__main__':
+    print("Warning: Once renamed, this cannot be undone!!")
+    main()
