@@ -15,7 +15,7 @@ python MultiRename.py
 1. Enter the path to the folder containing the files you want to rename.
 2. Review the displayed file order and confirm.
 3. Enter a filename template using `xx11` as a placeholder for the incrementing number (zero-padded to 2 digits).
-4. Files are renamed sequentially — `xx11` becomes `01`, `02`, `03`, etc.
+4. Files are renamed sequentially, `xx11` becomes `01`, `02`, `03`, etc.
 
 ## Example
 
@@ -70,6 +70,6 @@ Vacation 06.jpg
 
 ## Template rules
 
-- `xx11` is **required** in the template — it will be replaced with `01`, `02`, `03`, ...
+- `xx11` is **required** in the template, it will be replaced with `01`, `02`, `03`, ...
 - Include the file extension at the end of the template (e.g., `.jpg`, `.png`).
 - Numbers are always zero-padded to 2 digits.
