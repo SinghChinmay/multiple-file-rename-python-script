@@ -1,35 +1,75 @@
 # MultiRename.py
 
-This script is used to rename multiple files in a directory according to a specific pattern.
+A Python script to batch rename multiple files in a directory using a numbered template.
+
+## Requirements
+
+- Python 3
 
 ## Usage
 
-1. Run the script: `python MultiRename.py`
-2. When prompted, enter the destination folder location.
-3. The script will display the current file order. Confirm if the order is correct.
-4. If the order is correct, enter the new filename template. Make sure to include 'xx11' in the template where you want the file number to appear. Also, don't forget to include the file extension.
+```bash
+python MultiRename.py
+```
+
+1. Enter the path to the folder containing the files you want to rename.
+2. Review the displayed file order and confirm.
+3. Enter a filename template using `xx11` as a placeholder for the incrementing number (zero-padded to 2 digits).
+4. Files are renamed sequentially — `xx11` becomes `01`, `02`, `03`, etc.
 
 ## Example
 
-```
-
-> python MultiRename.py
-> Warning: Once renamed, this cannot be undone!!
-> Enter the destination folder location : C:\\Studboo\\test
-> File order below:
-> apple 01.jpg
-> apple 02.jpg
-> ...
-> Is the file order correct? (y/n) y
-> To rename the file, add xx11 in the number you want to rename. For example:
-> \[Moozzi2\] Given - 01 (BD 1920x1080 x.264 Flac).ass => \[Moozzi2\] Given - xx11 (BD 1920x1080 x.264 Flac).ass
-> Enter new filename template (make sure to add extensions): apple xx11.jpg
-> apple 01.jpg is replaced with : apple 01.jpg
-> apple 02.jpg is replaced with : apple 02.jpg
-> ...
+**Before:** A folder with inconsistently named files:
 
 ```
+IMG_8492.jpg
+IMG_8501.jpg
+IMG_8510.jpg
+photo1.png
+photo10.png
+photo2.png
+```
 
-## Issues
+**Run the script:**
 
-If you encounter any issues, please report them.
+```
+Warning: Once renamed, this cannot be undone!!
+
+Enter the destination folder location : /home/user/vacation-photos
+
+File order below:
+IMG_8492.jpg
+IMG_8501.jpg
+IMG_8510.jpg
+photo1.png
+photo10.png
+photo2.png
+
+Is the file order correct? (y/n) y
+
+Enter new filename template (make sure to add extensions): Vacation xx11.jpg
+
+IMG_8492.jpg is replaced with : Vacation 01.jpg
+IMG_8501.jpg is replaced with : Vacation 02.jpg
+IMG_8510.jpg is replaced with : Vacation 03.jpg
+photo1.png is replaced with : Vacation 04.jpg
+photo10.png is replaced with : Vacation 05.jpg
+photo2.png is replaced with : Vacation 06.jpg
+```
+
+**After:** All files renamed cleanly:
+
+```
+Vacation 01.jpg
+Vacation 02.jpg
+Vacation 03.jpg
+Vacation 04.jpg
+Vacation 05.jpg
+Vacation 06.jpg
+```
+
+## Template rules
+
+- `xx11` is **required** in the template — it will be replaced with `01`, `02`, `03`, ...
+- Include the file extension at the end of the template (e.g., `.jpg`, `.png`).
+- Numbers are always zero-padded to 2 digits.
